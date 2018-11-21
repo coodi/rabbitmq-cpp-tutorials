@@ -24,9 +24,9 @@ int main(int argc, const char* argv[])
                bool redelivered)
             {
                 std::cout <<" [x] "
-                          <<message.routingKey()
+                          <<message.routingkey()//message.routingKey()
                           <<":"
-                          <<message.message()
+                          <<message.body()//message.message()
                           << std::endl;
             };
 

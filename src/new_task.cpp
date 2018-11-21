@@ -16,7 +16,7 @@ int main(int argc, const char* argv[])
     AMQP::QueueCallback callback =
             [&](const std::string &name, int msgcount, int consumercount)
             {
-                AMQP::Envelope env(msg);
+                AMQP::Envelope env(msg.c_str(),msg.size());
                 env.setDeliveryMode(2);
                 channel.publish("", "task_queue", env);
                 std::cout<<" [x] Sent '"<<msg<<"'\n";

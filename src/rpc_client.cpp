@@ -16,7 +16,7 @@ int main(int argc, const char* argv[])
             int msgcount,
             int consumercount)
     {
-        AMQP::Envelope env("30");
+        AMQP::Envelope env("30",sizeof("30"));
         env.setCorrelationID(correlation);
         env.setReplyTo(name);
         channel.publish("","rpc_queue",env);
@@ -32,7 +32,8 @@ int main(int argc, const char* argv[])
         if(message.correlationID() != correlation)
             return;
 
-        std::cout<<" [.] Got "<<message.message()<<std::endl;
+        std::cout<<" [.] Got "<<message.body()//message.message()
+                 <<std::endl;
         handler.quit();
     };
 

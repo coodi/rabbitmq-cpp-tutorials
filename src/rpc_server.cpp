@@ -32,10 +32,11 @@ int main(void)
             uint64_t deliveryTag,
             bool redelivered)
     {
-        const auto body = message.message();
+        const auto body = std::string(message.body());//message.message();
         std::cout<<" [.] fib("<<body<<")"<<std::endl;
 
-        AMQP::Envelope env(std::to_string(fib(std::stoi(body))));
+        auto tstr = std::to_string(fib(std::stoi(body)));
+        AMQP::Envelope env(tstr.c_str(),tstr.size());
         env.setCorrelationID(message.correlationID());
 
         channel.publish("", message.replyTo(), env);

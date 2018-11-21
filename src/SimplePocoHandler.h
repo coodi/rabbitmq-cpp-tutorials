@@ -2,7 +2,7 @@
 #define SRC_SIMPLEPOCOHANDLER_H_
 
 #include <memory>
-#include <amqpcpp.h>
+#include <include/amqpcpp.h>
 
 class SimplePocoHandlerImpl;
 class SimplePocoHandler: public AMQP::ConnectionHandler
@@ -30,7 +30,7 @@ private:
     virtual void onData(
             AMQP::Connection *connection, const char *data, size_t size);
 
-    virtual void onConnected(AMQP::Connection *connection);
+    virtual void onReady(AMQP::Connection *connection);
 
     virtual void onError(AMQP::Connection *connection, const char *message);
 

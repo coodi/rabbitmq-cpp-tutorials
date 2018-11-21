@@ -14,7 +14,8 @@ int main(void)
             bool redelivered)
     {
 
-        std::cout <<" [x] "<<message.message() << std::endl;
+        std::cout <<" [x] "<<message.body()//message.message()
+                  << std::endl;
     };
 
     AMQP::QueueCallback callback =

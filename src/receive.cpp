@@ -14,8 +14,10 @@ int main(void)
                        uint64_t deliveryTag,
                        bool redelivered)
             {
-
-                std::cout <<" [x] Received "<<message.message() << std::endl;
+                std::string(message.body());
+                std::cout <<" [x] Received "
+                          << std::string(message.body(),message.bodySize())
+                          << std::endl;
             });
 
     std::cout << " [*] Waiting for messages. To exit press CTRL-C\n";

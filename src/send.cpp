@@ -11,9 +11,10 @@ int main(void)
 
     channel.onReady([&]()
     {
+        std::cout<<"here"<<std::endl;
         if(handler.connected())
         {
-            channel.publish("", "hello", "Hello World!");
+            channel.publish("", "hello", std::string("Hello World!"));
             std::cout << " [x] Sent 'Hello World!'" << std::endl;
             handler.quit();
         }

@@ -17,5 +17,5 @@ set(PROGS send
 
 foreach(item ${PROGS})
     add_executable(${item} "${item}.cpp")
-    target_link_libraries(${item} amqp-cpp poco_simple_handler)    
+    target_link_libraries(${item} amqpcpp poco_simple_handler)
 endforeach(item)

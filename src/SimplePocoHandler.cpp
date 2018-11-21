@@ -170,7 +170,7 @@ void SimplePocoHandler::onData(
     }
 }
 
-void SimplePocoHandler::onConnected(AMQP::Connection *connection)
+void SimplePocoHandler::onReady(AMQP::Connection *connection)
 {
     m_impl->connected = true;
 }
